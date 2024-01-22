@@ -41,8 +41,8 @@ class _LogInState extends State<LogIn> {
       } else {
         return AwesomeDialog(
             title: "Error",
-            btnCancel: Text("Cancel"),
-            body: Text("Wrong Password Or E-Mail"),
+            btnCancel: const Text("Cancel"),
+            body: const Text("Wrong Password Or E-Mail"),
             animType: AnimType.scale,
             context: context)
           ..show();
@@ -54,11 +54,11 @@ class _LogInState extends State<LogIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: islodaing == true
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(),
             )
           : Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: ListView(children: [
                 Form(
                   key: formtext,
@@ -71,7 +71,7 @@ class _LogInState extends State<LogIn> {
                           },
                           cont: email,
                           hint: "E-Mail"),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       CustomText(
@@ -81,22 +81,22 @@ class _LogInState extends State<LogIn> {
                           cont: password,
                           hint: "Password"),
                       ElevatedButton(
-                          style: ButtonStyle(
+                          style: const ButtonStyle(
                               backgroundColor:
                                   MaterialStatePropertyAll(Colors.black)),
                           onPressed: () async {
                             await login();
                           },
-                          child: Text("LogIn")),
+                          child: const Text("LogIn")),
                       Row(
                         children: [
-                          Text("If You Don't Have Account"),
-                          SizedBox(width: 3),
+                          const Text("If You Don't Have Account"),
+                          const SizedBox(width: 3),
                           InkWell(
                             onTap: () {
                               Navigator.of(context).pushNamed("singup");
                             },
-                            child: Text(
+                            child: const Text(
                               "Clich Here",
                               style: TextStyle(color: Colors.red),
                             ),

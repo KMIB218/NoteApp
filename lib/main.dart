@@ -25,12 +25,12 @@ class NoteApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: sharedpref.getString("id") == null ? "/" : "home",
       routes: {
-        "/": (context) => LogIn(),
-        "singup": (context) => SingUp(),
-        "home": (context) => Home(),
-        "success": (context) => Success(),
-        "add": (context) => AddNotes(),
-        "edit": (context) => EditNotes(
+        "/": (context) => const LogIn(),
+        "singup": (context) => const SingUp(),
+        "home": (context) => const Home(),
+        "success": (context) => const Success(),
+        "add": (context) => const AddNotes(),
+        "edit": (context) => const EditNotes(
               note: null,
             ),
       },

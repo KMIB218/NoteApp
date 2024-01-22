@@ -30,7 +30,7 @@ class CardNote extends StatelessWidget {
                   title: Text("${notemodel.notesTitle}"),
                   subtitle: Text("${notemodel.notesContent}"),
                   trailing: IconButton(
-                    icon: Icon(Icons.delete_forever),
+                    icon: const Icon(Icons.delete_forever),
                     onPressed: onDelete,
                   ),
                 )),

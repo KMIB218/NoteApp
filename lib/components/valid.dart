@@ -2,7 +2,7 @@ import 'package:my_project/constant/massege.dart';
 
 validInput(String val, int min, int max) {
   if (val.isEmpty) {
-    return "$messageInput";
+    return messageInput;
   }
 
   if (val.length < min) {

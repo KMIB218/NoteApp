@@ -29,13 +29,13 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
         backgroundColor: Colors.black,
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => AddNotes(),
+            builder: (context) => const AddNotes(),
           ));
         },
+        child: const Icon(Icons.add),
       ),
       appBar: AppBar(
         actions: [
@@ -45,7 +45,7 @@ class _HomeState extends State<Home> {
                 Navigator.of(context)
                     .pushNamedAndRemoveUntil("/", (route) => false);
               },
-              icon: Icon(Icons.exit_to_app))
+              icon: const Icon(Icons.exit_to_app))
         ],
         title: Text("Home | ${sharedpref.getString("email")}"),
       ),
@@ -56,17 +56,18 @@ class _HomeState extends State<Home> {
               future: viewNotes(),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
                 if (snapshot.hasData) {
-                  if (snapshot.data['s'] == 'f')
-                    return Center(
+                  if (snapshot.data['s'] == 'f') {
+                    return const Center(
                         child: Center(
                             child: Text(
                       "There Are No Notes",
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     )));
+                  }
                   return ListView.builder(
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: snapshot.data['data'].length,
                     itemBuilder: (BuildContext context, int index) {
                       return CardNote(
@@ -96,11 +97,11 @@ class _HomeState extends State<Home> {
                   );
                 }
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 }
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               },

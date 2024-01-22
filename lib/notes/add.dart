@@ -7,7 +7,6 @@ import 'package:my_project/components/customtextform.dart';
 import 'package:my_project/components/valid.dart';
 import 'package:my_project/constant/linkapi.dart';
 import 'package:my_project/main.dart';
-import 'package:image_picker/image_picker.dart';
 
 class AddNotes extends StatefulWidget {
   const AddNotes({
@@ -26,12 +25,13 @@ class _AddNotesState extends State<AddNotes> {
   GlobalKey<FormState> formtext = GlobalKey<FormState>();
   Curd curd = Curd();
   addNote() async {
-    if (myfile == null)
+    if (myfile == null) {
       return AwesomeDialog(
           context: context,
           title: "Error",
-          body: Text("Please Choose Image For Your Note"))
+          body: const Text("Please Choose Image For Your Note"))
         ..show();
+    }
     if (formtext.currentState!.validate()) {
       isloading = true;
       setState(() {});
@@ -58,11 +58,11 @@ class _AddNotesState extends State<AddNotes> {
         title: const Text("Add Notes"),
       ),
       body: isloading == true
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(),
             )
           : Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Form(
                 key: formtext,
                 child: ListView(children: [
@@ -73,7 +73,7 @@ class _AddNotesState extends State<AddNotes> {
                       return validInput(val!, 3, 1000);
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   CustomText(
@@ -83,9 +83,9 @@ class _AddNotesState extends State<AddNotes> {
                       return validInput(val!, 3, 1000);
                     },
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Container(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       left: 70,
                       right: 70,
                     ),
@@ -93,10 +93,10 @@ class _AddNotesState extends State<AddNotes> {
                         onPressed: () async {
                           await addNote();
                         },
-                        child: Text("Add Note")),
+                        child: const Text("Add Note")),
                   ),
                   Container(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       left: 70,
                       right: 70,
                     ),
@@ -104,7 +104,7 @@ class _AddNotesState extends State<AddNotes> {
                       onPressed: () {
                         showModalBottomSheet(
                           context: context,
-                          builder: (BuildContext context) => Container(
+                          builder: (BuildContext context) => SizedBox(
                             height: 100,
                             width: 100,
                             child: Column(
@@ -120,8 +120,8 @@ class _AddNotesState extends State<AddNotes> {
                                   child: Container(
                                     alignment: Alignment.center,
                                     width: double.infinity,
-                                    padding: EdgeInsets.all(10),
-                                    child: Text("Choose Image From Gallery",
+                                    padding: const EdgeInsets.all(10),
+                                    child: const Text("Choose Image From Gallery",
                                         style: TextStyle(fontSize: 20)),
                                   ),
                                 ),
@@ -136,8 +136,8 @@ class _AddNotesState extends State<AddNotes> {
                                   child: Container(
                                     alignment: Alignment.center,
                                     width: double.infinity,
-                                    padding: EdgeInsets.all(10),
-                                    child: Text("Choose Image From Camera",
+                                    padding: const EdgeInsets.all(10),
+                                    child: const Text("Choose Image From Camera",
                                         style: TextStyle(fontSize: 20)),
                                   ),
                                 ),
@@ -146,10 +146,10 @@ class _AddNotesState extends State<AddNotes> {
                           ),
                         );
                       },
-                      child: Text("Add Image"),
                       style: ButtonStyle(
                           backgroundColor: MaterialStatePropertyAll(
                               myfile == null ? Colors.blue : Colors.red)),
+                      child: const Text("Add Image"),
                     ),
                   ),
                 ]),

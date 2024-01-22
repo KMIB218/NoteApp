@@ -14,10 +14,10 @@ class CustomText extends StatelessWidget {
       controller: cont,
       decoration: InputDecoration(
         hintText: hint,
-        enabledBorder: OutlineInputBorder(
+        enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black),
             borderRadius: BorderRadius.all(Radius.circular(10))),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black),
             borderRadius: BorderRadius.all(Radius.circular(10))),
       ),

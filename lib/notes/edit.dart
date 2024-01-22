@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:my_project/components/crud.dart';
 import 'package:my_project/components/customtextform.dart';
 import 'package:my_project/constant/linkapi.dart';
-import 'package:my_project/main.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:http/http.dart' as http;
 
 class EditNotes extends StatefulWidget {
   final note;
@@ -72,30 +70,34 @@ class _EditNotesState extends State<EditNotes> {
         title: const Text("Add Notes"),
       ),
       body: isloading == true
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(),
             )
           : Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Form(
                 key: formtext,
                 child: ListView(children: [
                   CustomText(
                     hint: "title",
                     cont: title,
-                    valid: (val) {},
+                    valid: (val) {
+                      return null;
+                    },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   CustomText(
                     hint: "content",
                     cont: content,
-                    valid: (val) {},
+                    valid: (val) {
+                      return null;
+                    },
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Container(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       left: 70,
                       right: 70,
                     ),
@@ -103,13 +105,13 @@ class _EditNotesState extends State<EditNotes> {
                         onPressed: () async {
                           await editNote();
                         },
-                        child: Text("Edit Note")),
+                        child: const Text("Edit Note")),
                   ),
                   ElevatedButton(
                     onPressed: () {
                       showModalBottomSheet(
                         context: context,
-                        builder: (BuildContext context) => Container(
+                        builder: (BuildContext context) => SizedBox(
                           height: 100,
                           width: 100,
                           child: Column(
@@ -125,8 +127,8 @@ class _EditNotesState extends State<EditNotes> {
                                 child: Container(
                                   alignment: Alignment.center,
                                   width: double.infinity,
-                                  padding: EdgeInsets.all(10),
-                                  child: Text("Choose Image From Gallery",
+                                  padding: const EdgeInsets.all(10),
+                                  child: const Text("Choose Image From Gallery",
                                       style: TextStyle(fontSize: 20)),
                                 ),
                               ),
@@ -141,8 +143,8 @@ class _EditNotesState extends State<EditNotes> {
                                 child: Container(
                                   alignment: Alignment.center,
                                   width: double.infinity,
-                                  padding: EdgeInsets.all(10),
-                                  child: Text("Choose Image From Camera",
+                                  padding: const EdgeInsets.all(10),
+                                  child: const Text("Choose Image From Camera",
                                       style: TextStyle(fontSize: 20)),
                                 ),
                               ),
@@ -151,10 +153,10 @@ class _EditNotesState extends State<EditNotes> {
                         ),
                       );
                     },
-                    child: Text("Add Image"),
                     style: ButtonStyle(
                         backgroundColor: MaterialStatePropertyAll(
                             myfile == null ? Colors.blue : Colors.red)),
+                    child: const Text("Add Image"),
                   ),
                 ]),
               ),

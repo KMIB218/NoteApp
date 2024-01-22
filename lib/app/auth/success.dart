@@ -11,13 +11,13 @@ class Success extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("You Singed Up Successfully You Can Log in"),
+            const Text("You Singed Up Successfully You Can Log in"),
             ElevatedButton(
                 onPressed: () {
                   Navigator.of(context)
                       .pushNamedAndRemoveUntil("/", (route) => false);
                 },
-                child: Text("Log In")),
+                child: const Text("Log In")),
           ],
         ),
       ),
